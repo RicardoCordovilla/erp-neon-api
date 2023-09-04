@@ -12,8 +12,7 @@ const getCustomerById = async (id) => {
 }
 
 const createCustomer = async (data) => {
-    const newCustomer = await Customers.create({
-        id: uuid.v4(),
+    const newCustomer = await Customers.create({        
         name: data.name,
         phone: data.phone,
         alias: data.alias,

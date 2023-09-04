@@ -3,7 +3,8 @@ const db = require('../../utils/database');
 
 const Customers = db.define('customers', {
     id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
         primaryKey: true,
         allowNull: false,
     },
