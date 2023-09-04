@@ -22,7 +22,7 @@ const getProjectByCustomerId = async (id) => {
 const createProject = async (data) => {
     const newProject = await Projects.create({
         id: uuid.v4(),
-        customerId: data.customerId,
+        customer_id: data.customer_id,
         title: data.title,
         address: data.address,
         projectSigns: data.projectSigns,
