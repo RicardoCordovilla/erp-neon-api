@@ -58,6 +58,7 @@ const createProject = async (req, res) => {
         }
         else {
             const newProject = await projectsControllers.createProject({
+                customerId,
                 title,
                 address,
                 projectSigns,
