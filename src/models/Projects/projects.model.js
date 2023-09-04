@@ -7,7 +7,7 @@ const Projects = db.define('projects', {
         primaryKey: true,
         allowNull: false,
     },
-    customerId: {
+    customer_id: {
         type: DataTypes.STRING,
         allowNull: true,
     },
