@@ -32,4 +32,4 @@ const Customers = db.define('customers', {
 }, { timestamps: false });
 
 module.exports = Customers
-Customers.sync({ alter: true });
+Customers.sync({ force: true });
