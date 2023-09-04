@@ -102,7 +102,10 @@ const updateProject = async (req, res) => {
             notes,
             otherContacts,
         });
-        res.status(200).json({ updatedProject: projectId });
+        res.status(200).json({
+            updatedProject: projectId,
+            body: req.body
+        });
     }
     catch (err) {
         res.status(404).json({ message: err.message });
