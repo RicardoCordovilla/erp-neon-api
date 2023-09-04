@@ -37,7 +37,7 @@ const getProjectById = async (req, res) => {
 }
 
 const createProject = async (req, res) => {
-    const { title, address, projectSigns, confirmationDate, sale, cost, quote, pays, instalationDate, estimatedEnd, additionalProducts, notes, otherContacts } = req.body;
+    const { customer_id, title, address, projectSigns, confirmationDate, sale, cost, quote, pays, instalationDate, estimatedEnd, additionalProducts, notes, otherContacts } = req.body;
     try {
         if (!title || !confirmationDate) {
             return res.status(404).json({
