@@ -8,7 +8,7 @@ const Projects = db.define('projects', {
         allowNull: false,
     },
     customerId: {
-        type: DataTypes.UUID,
+        type: DataTypes.STRING,
         allowNull: true,
     },
     title: {
