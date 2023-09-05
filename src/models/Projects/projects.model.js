@@ -26,7 +26,7 @@ const Projects = db.define('projects', {
     cost: {
         type: DataTypes.DOUBLE,
         allowNull: true,
-        defaultValue: 0,
+        defaultValue: 10,
     },
     sale: {
         type: DataTypes.DOUBLE,
