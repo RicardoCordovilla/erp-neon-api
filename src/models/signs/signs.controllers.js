@@ -5,7 +5,7 @@ const { sign } = require('jsonwebtoken')
 
 const getAllSigns = async () => {
     const data = await Signs.findAll({
-        order: [ ['updatedAt', 'ASC'] ],
+        order: [ ['updatedAt', 'DESC'] ],
 
     })
     return data
