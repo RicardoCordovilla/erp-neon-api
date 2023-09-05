@@ -41,7 +41,7 @@ const Signs = db.define('signs', {
         defaultValue: [],
     }
 
-}, { timestamps: false })
+}, { timestamps: true })
 
 // Signs.hasMany(Products, { through: 'signProducts' });
 // Products.belongsTo(Signs, { through: 'signProducts' });

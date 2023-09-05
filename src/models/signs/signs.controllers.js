@@ -5,10 +5,7 @@ const { sign } = require('jsonwebtoken')
 
 const getAllSigns = async () => {
     const data = await Signs.findAll({
-        // include: [{
-        //     model: Products,
-        //     through: { attributes: [] }
-        // }]
+        
     })
     return data
 }

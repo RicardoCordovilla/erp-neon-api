@@ -71,7 +71,7 @@ const Projects = db.define('projects', {
         allowNull: true,
         defaultValue: '',
     },
-}, { timestamps: false });
+}, { timestamps: true });
 
 module.exports = Projects;
 

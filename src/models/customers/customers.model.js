@@ -29,7 +29,7 @@ const Customers = db.define('customers', {
         allowNull: true,
     },
 
-}, { timestamps: false });
+}, { timestamps: true });
 
 module.exports = Customers
 Customers.sync({ alter: true });
