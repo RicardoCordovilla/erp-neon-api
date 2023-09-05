@@ -103,6 +103,7 @@ const updateProject = async (req, res) => {
             otherContacts,
         });
         res.status(200).json({
+            updateProject: updatedProject,
             updatedProject: projectId,
             body: req.body
         });
