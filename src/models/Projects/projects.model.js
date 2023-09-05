@@ -44,9 +44,9 @@ const Projects = db.define('projects', {
         defaultValue: [],
     },
     paystatus: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.INTEGER,
         allowNull: true,
-        defaultValue: false,
+        defaultValue: 0,
     },
     projectSigns: {
         type: DataTypes.ARRAY(DataTypes.JSON),

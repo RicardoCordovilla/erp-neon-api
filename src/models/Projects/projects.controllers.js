@@ -3,7 +3,7 @@ const Projects = require('./projects.model')
 
 const getAllProjects = async () => {
     const data = await Projects.findAll({
-        order: [['paystatus', 'ASC']],
+        order: [['paystatus', 'DESC']],
     })
     return data
 }
