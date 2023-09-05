@@ -44,7 +44,7 @@ const Projects = db.define('projects', {
         defaultValue: [],
     },
     paystatus: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: true,
         defaultValue: 0,
     },

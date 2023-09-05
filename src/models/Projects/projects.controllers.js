@@ -15,7 +15,7 @@ const getProjectById = async (id) => {
 
 const getProjectByCustomerId = async (id) => {
     const data = await Projects.findAll({
-        order: [['paystatus', 'ASC']],
+        order: [['paystatus', 'DESC']],
         where: { customer_id: id }
     })
     return data
