@@ -13,7 +13,7 @@ const getProjectById = async (id) => {
 
 const getProjectByCustomerId = async (id) => {
     const data = await Projects.findAll({
-        where: { customerId: id }
+        where: { customer_id: id }
     })
     return data
 }

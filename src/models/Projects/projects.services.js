@@ -44,14 +44,14 @@ const createProject = async (req, res) => {
                 message: 'Faltan campos',
                 fields: {
                     title: 'String',
-                    address: 'String',
+                    // address: 'String',
                     confirmationDate: 'String',
-                    sale: 'Number',
-                    cost: 'Number',
-                    quote: 'String',
-                    pays: 'Number',
-                    instalationDate: 'String',
-                    estimatedEnd: 'String',
+                    // sale: 'Number',
+                    // cost: 'Number',
+                    // quote: 'String',
+                    // pays: 'Number',
+                    // instalationDate: 'String',
+                    // estimatedEnd: 'String',
                 }
 
             });
