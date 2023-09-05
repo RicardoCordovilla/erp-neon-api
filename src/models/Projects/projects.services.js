@@ -101,6 +101,7 @@ const updateProject = async (req, res) => {
             additionalProducts,
             notes,
             otherContacts,
+            updatedat: new Date()
         });
         res.status(200).json({
             updateProject: updatedProject,

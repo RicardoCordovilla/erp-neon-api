@@ -71,6 +71,16 @@ const Projects = db.define('projects', {
         allowNull: true,
         defaultValue: '',
     },
+    createdat: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: new Date(),
+    },
+    updatedat: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: new Date(),
+    },
 }, { timestamps: false });
 
 module.exports = Projects;

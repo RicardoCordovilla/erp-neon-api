@@ -39,7 +39,17 @@ const Signs = db.define('signs', {
         // },
         allowNull: true,
         defaultValue: [],
-    }
+    },
+    createdat: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: new Date(),
+    },
+    updatedat: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: new Date(),
+    },
 
 }, { timestamps: false })
 

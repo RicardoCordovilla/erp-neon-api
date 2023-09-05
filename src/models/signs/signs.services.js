@@ -52,7 +52,7 @@ const updateSign = async (req, res) => {
     const { title, description, images, startProject, endProject, sale, cost } = req.body;
     const signId = req.params.id;
     try {
-        const updatedSign = signsControllers.updateSign(signId, { title, description, images, startProject, endProject, sale, cost });
+        const updatedSign = signsControllers.updateSign(signId, { title, description, images, startProject, endProject, sale, cost,updatedat: new Date() });
         return res.status(200).json({ updatedSign: signId });
     }
     catch (err) {
