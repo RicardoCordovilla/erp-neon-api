@@ -83,7 +83,7 @@ const createProject = async (req, res) => {
 }
 
 const updateProject = async (req, res) => {
-    const { customer_id, title, address, projectSigns, confirmationDate, sale, cost, quote, pays, instalationDate, estimatedEnd, additionalProducts, notes, otherContacts } = req.body;
+    const { customer_id, title, address, projectSigns, confirmationDate, sale, cost, quote, pays, paystatus, instalationDate, estimatedEnd, additionalProducts, notes, otherContacts } = req.body;
     const projectId = req.params.id;
     try {
         const updatedProject = projectsControllers.updateProject(projectId, {
@@ -96,6 +96,7 @@ const updateProject = async (req, res) => {
             quote,
             cost,
             pays,
+            paystatus,
             instalationDate,
             estimatedEnd,
             additionalProducts,
