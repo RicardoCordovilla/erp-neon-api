@@ -14,10 +14,10 @@ router.patch('/id/:id',
     // passport.authenticate('jwt', { session: false }),
     signsServices.updateSign
 )
-// router.patch('/products/:id',
-//     // passport.authenticate('jwt', { session: false }),
-//     signsServices.addSingProducts
-// )
+router.patch('/products',
+    // passport.authenticate('jwt', { session: false }),
+    signsServices.addProducts
+)
 
 module.exports = router
 

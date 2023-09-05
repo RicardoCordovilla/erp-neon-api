@@ -49,10 +49,17 @@ const createSign = async (req, res) => {
 
 
 const updateSign = async (req, res) => {
-    const { title, description, images, startProject, endProject, sale, cost } = req.body;
+    const { title, description, images, startProject, endProject, sale, cost, productsOfSign } = req.body;
     const signId = req.params.id;
+
+    let signProducts = [];
+    for (const product of productsOfSign) {
+        product.new = false;
+        signProducts = [...signProducts, product];
+    }
+
     try {
-        const updatedSign = signsControllers.updateSign(signId, { title, description, images, startProject, endProject, sale, cost,updatedat: new Date() });
+        const updatedSign = signsControllers.updateSign(signId, { signProducts, title, description, images, startProject, endProject, sale, cost, updatedat: new Date() });
         return res.status(200).json({ updatedSign: signId });
     }
     catch (err) {
@@ -61,15 +68,14 @@ const updateSign = async (req, res) => {
 }
 
 const addProducts = async (req, res) => {
-    const { signProducts, } = req.body;
+    const { signProducts } = req.body;
     const signId = req.params.id;
     try {
-        const updatedSign = signsControllers.addProducts(signId, { signProducts });
+        console.log(signProducts);
         for (const product of signProducts) {
-            const { productId, quantity } = product;
-            const existingProduct = await productsControllers.getProductById(productId);
-            if (existingProduct)
-                await productsControllers.updateProduct(productId, { stock: existingProduct.stock - quantity });
+            const existingProduct = await productsControllers.getProductById(product.product.id);
+            if (existingProduct && product.new)
+                await productsControllers.updateProduct(product.product.id, { stock: existingProduct.stock - product.quantity });
         }
         return res.status(200).json({ updatedSign: signId });
     }
