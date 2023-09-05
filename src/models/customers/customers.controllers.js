@@ -3,7 +3,7 @@ const Customers = require('./customers.model'); // Importa el modelo de Customer
 
 const getAllCustomers = async () => {
     const data = await Customers.findAll({
-        order: [['updatedAt', 'DESC']],
+        order: [['updatedat', 'DESC']],
     });
     return data;
 }
