@@ -45,7 +45,7 @@ const createCustomer = (req, res) => {
 const updateCustomer = (req, res) => {
     const { name, phone, alias, email, avatar } = req.body;
     const id = req.params.id;
-    customersControllers.updateCustomer(id, { name, phone, alias, email, avatar })
+    customersControllers.updateCustomer(id, { name, phone, alias, email, avatar, updatedat: new Date() })
         .then(data => {
             res.status(200).json(data);
         })

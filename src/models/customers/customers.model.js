@@ -28,6 +28,16 @@ const Customers = db.define('customers', {
         type: DataTypes.STRING,
         allowNull: true,
     },
+    createdat: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: new Date(),
+    },
+    updatedat: {
+        type: DataTypes.DATE,
+        allowNull: true,
+        defaultValue: new Date(),
+    },
 
 }, { timestamps: false });
 
