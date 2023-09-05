@@ -2,7 +2,9 @@ const uuid = require('uuid');
 const Customers = require('./customers.model'); // Importa el modelo de Customers
 
 const getAllCustomers = async () => {
-    const data = await Customers.findAll();
+    const data = await Customers.findAll({
+        order: [['updatedAt', 'ASC']],
+    });
     return data;
 }
 
@@ -12,7 +14,7 @@ const getCustomerById = async (id) => {
 }
 
 const createCustomer = async (data) => {
-    const newCustomer = await Customers.create({        
+    const newCustomer = await Customers.create({
         name: data.name,
         phone: data.phone,
         alias: data.alias,

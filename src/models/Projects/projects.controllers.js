@@ -2,7 +2,9 @@ const uuid = require('uuid')
 const Projects = require('./projects.model')
 
 const getAllProjects = async () => {
-    const data = await Projects.findAll()
+    const data = await Projects.findAll({
+        order: [['updatedAt', 'ASC']],
+    })
     return data
 }
 
@@ -13,6 +15,7 @@ const getProjectById = async (id) => {
 
 const getProjectByCustomerId = async (id) => {
     const data = await Projects.findAll({
+        order: [['updatedAt', 'ASC']],
         where: { customer_id: id }
     })
     return data
