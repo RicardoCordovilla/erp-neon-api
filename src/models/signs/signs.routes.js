@@ -18,6 +18,12 @@ router.patch('/products',
     // passport.authenticate('jwt', { session: false }),
     signsServices.addProducts
 )
+router.delete('/id/:id',
+    // passport.authenticate('jwt', { session: false }),
+    signsServices.deleteSign
+)
+
+
 
 module.exports = router
 

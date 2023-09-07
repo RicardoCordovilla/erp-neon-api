@@ -84,6 +84,18 @@ const addProducts = async (req, res) => {
     }
 }
 
+const deleteSign= async (req, res) => {
+    const signId = req.params.id;
+    try {
+        const deletedSign = await signsControllers.deletedSign(signId);
+        return res.status(200).json({ deletedSign: deletedSign });
+    }
+    catch (err) {
+        res.status(404).json({ message: err.message });
+    }
+}
+
+
 
 
 module.exports = {
@@ -91,7 +103,8 @@ module.exports = {
     getSignById,
     createSign,
     updateSign,
-    addProducts
+    addProducts,
+    deleteSign
 };
 
 

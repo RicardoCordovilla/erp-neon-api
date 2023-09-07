@@ -38,11 +38,19 @@ const updateSign = async (id, body) => {
     return result
 }
 
+const deletedSign = async (id) => {
+    const result = await Signs.destroy({
+        where: { id }
+    })
+    return result
+}
+
 
 module.exports = {
     getAllSigns,
     getSignById,
     createSign,
     updateSign,
+    deletedSign
 }
 
