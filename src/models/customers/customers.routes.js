@@ -17,4 +17,9 @@ router.patch('/id/:id',
     customersServices.updateCustomer
 );
 
+router.delete('/id/:id',
+    // passport.authenticate('jwt', { session: false }),
+    customersServices.deletedCustomer
+);
+
 module.exports = router;

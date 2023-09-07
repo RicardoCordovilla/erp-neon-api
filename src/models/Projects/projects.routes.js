@@ -17,4 +17,9 @@ router.patch('/id/:id',
     projectsServices.updateProject
 )
 
+router.delete('/id/:id',
+    // passport.authenticate('jwt', { session: false }),
+    projectsServices.deletedProject
+)
+
 module.exports = router

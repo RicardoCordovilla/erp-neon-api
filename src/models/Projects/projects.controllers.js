@@ -50,10 +50,19 @@ const updateProject = async (id, body) => {
     return result
 }
 
+const deleteProject = async (id) => {
+    const result = await Projects.destroy({
+        where: { id }
+    })
+    return result
+}
+
+
 module.exports = {
     getAllProjects,
     getProjectById,
     getProjectByCustomerId,
     createProject,
     updateProject,
+    deleteProject
 }

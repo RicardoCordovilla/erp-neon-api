@@ -30,9 +30,17 @@ const updateCustomer = async (id, body) => {
     return result;
 }
 
+const deletedCustomer = async (id) => {
+    const result = await Customers.destroy({
+        where: { id }
+    });
+    return result;
+}
+
 module.exports = {
     getAllCustomers,
     getCustomerById,
     createCustomer,
     updateCustomer,
+    deletedCustomer
 };

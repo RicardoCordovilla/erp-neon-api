@@ -115,6 +115,19 @@ const updateProject = async (req, res) => {
     }
 }
 
+const deletedProject = async (req, res) => {
+    const id = req.params.id;
+    const data = await projectsControllers.deletedProject(id)
+        .then(data => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(404).json({ message: err.message });
+        });
+    return data
+}
+
+
 
 module.exports = {
     getAllProjects,
@@ -122,4 +135,5 @@ module.exports = {
     getProjectById,
     createProject,
     updateProject,
+    deletedProject
 }

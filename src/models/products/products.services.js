@@ -58,9 +58,22 @@ const updateProduct = (req, res) => { // Cambio de nombre de la función
         });
 }
 
+const deletedProduct = (req, res) => { 
+    const id = req.params.id;
+    productsControllers.deletedProduct(id)
+        .then(data => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(404).json({ message: err.message });
+        }); 
+}
+
+
 module.exports = {
     getAllProducts,
     getProductById,
     createProduct,
     updateProduct,
+    deletedProduct
 };
