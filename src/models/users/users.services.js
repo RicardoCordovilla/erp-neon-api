@@ -40,7 +40,7 @@ const registerUser = (req, res) => {
             .json({
                 message: 'Missing fields',
                 fields: {
-                    name: 'string',
+                    name: 'string(required)',
                     email: 'email@email',
                     password: 'string'
                 }

@@ -47,7 +47,7 @@ app.use('/api/v1/auth', authRouter)
 
 
 
-app.use('/api/signs', signsRouter)
+app.use('/api/sigs', signsRouter)
 app.use('/api/products', productsRouter)
 app.use('/api/projects', projectsRouter)
 app.use('/api/customers', customersRouter)

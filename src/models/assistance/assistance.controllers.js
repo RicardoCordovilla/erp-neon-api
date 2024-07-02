@@ -19,7 +19,8 @@ const getAssistanceByWeekUser = async (week, userId) => {
 
 const getAssistanceDateRangeByUser = async (dateFrom, dateTo, userId) => {
     const data = await Assistance.findAll({
-        where: { date: { [Op.between]: [dateFrom, dateTo] }, userId }
+        where: { date: { [Op.between]: [dateFrom, dateTo] }, userId },
+        order: [['date', 'ASC']]
     })
     return data
 }
