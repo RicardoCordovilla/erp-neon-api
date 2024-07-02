@@ -38,7 +38,12 @@ const Users = db.define('users', {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 'normal'
-    }
+    },
+    role: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'employee'
+    },
     // usertype:{
     //     type:DataTypes.INTEGER,
     //     allowNull:false,
@@ -52,4 +57,5 @@ const Users = db.define('users', {
 
 }, { timestamps: false })
 
+Users.sync({alter: true})
 module.exports = Users

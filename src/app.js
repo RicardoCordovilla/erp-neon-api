@@ -6,6 +6,7 @@ const productsRouter = require('./models/products/products.routes')
 const signsRouter = require('./models/signs/signs.routes')
 const projectsRouter=require('./models/Projects/projects.routes')
 const customersRouter = require('./models/customers/customers.routes')
+const assistanceRouter = require('./models/assistance/assistance.routes')
 
 const db = require('./utils/database')
 const express = require('express')
@@ -50,6 +51,7 @@ app.use('/api/signs', signsRouter)
 app.use('/api/products', productsRouter)
 app.use('/api/projects', projectsRouter)
 app.use('/api/customers', customersRouter)
+app.use('/api/assistance', assistanceRouter)
 
 app.listen(port, () => {
     console.log(`server started at ${port}`)

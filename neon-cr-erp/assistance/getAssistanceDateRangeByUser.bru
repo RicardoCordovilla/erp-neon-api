@@ -1,0 +1,16 @@
+meta {
+  name: getAssistanceDateRangeByUser
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:9000/api/assistance/rangedate/76e5d29a-d324-4525-942c-b7e89f4b64ae?dateFrom=2024-07-01&dateTo=2024-07-02
+  body: none
+  auth: none
+}
+
+query {
+  dateFrom: 2024-07-01
+  dateTo: 2024-07-02
+}

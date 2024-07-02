@@ -1,0 +1,19 @@
+meta {
+  name: create assistance
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:9000/api/assistance
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "date": "2024-07-02",
+      "hourIn": "10:00",
+      "userId": "76e5d29a-d324-4525-942c-b7e89f4b64ae"
+    }
+}

@@ -1,0 +1,17 @@
+meta {
+  name: registerHourOut
+  type: http
+  seq: 2
+}
+
+patch {
+  url: http://localhost:9000/api/assistance/id/9c7e3805-b6fb-412a-845b-a9e03a13d5c2
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "hourOut": "17:00"
+  }
+}

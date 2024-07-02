@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "neon-cr-erp",
+  "type": "collection",
+  "presets": {
+    "requestType": "http",
+    "requestUrl": "localhost:9000/api/"
+  }
+}
