@@ -1,4 +1,7 @@
-const { Server } = require('socket.io');
+// import { Server as SocketServer } from "socket.io";
+// import http from "http";
+const { Server } = require("socket.io");
+const http = require("http");
 const userRouter = require('./models/users/users.router')
 const authRouter = require('./auth/auth.router')
 const initModels = require('./models/initModels')
@@ -20,11 +23,8 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 
-const io = new Server({
-    cors: {
-        origin: ['https://erp-neon-api-production.up.railway.app']
-    }
-});
+const server = http.createServer(app)
+const io = new Server(server, { cors: { origin: '*' } })
 
 io.on('connection', (socket) => {
     console.log(`connect: ${socket.id}`, socket.request.headers);
