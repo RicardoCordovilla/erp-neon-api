@@ -7,6 +7,7 @@ const signsRouter = require('./models/signs/signs.routes')
 const projectsRouter = require('./models/Projects/projects.routes')
 const customersRouter = require('./models/customers/customers.routes')
 const assistanceRouter = require('./models/assistance/assistance.routes')
+const db = require('./utils/database')
 
 
 db.authenticate()
@@ -21,7 +22,7 @@ db.authenticate()
 initModels()
 
 
-const { port } = require('./config')
+const { port, db } = require('./config')
 
 app.get('/', (req, res) => {
     res.status(200).json({
