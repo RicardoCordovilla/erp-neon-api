@@ -1,7 +1,3 @@
-// import { Server as SocketServer } from "socket.io";
-// import http from "http";
-const { Server } = require("socket.io");
-const http = require("http");
 const userRouter = require('./models/users/users.router')
 const authRouter = require('./auth/auth.router')
 const initModels = require('./models/initModels')
@@ -11,6 +7,10 @@ const signsRouter = require('./models/signs/signs.routes')
 const projectsRouter = require('./models/Projects/projects.routes')
 const customersRouter = require('./models/customers/customers.routes')
 const assistanceRouter = require('./models/assistance/assistance.routes')
+
+const { Server: SocketServer } = require('socket.io')
+const http = require('http')
+
 
 const db = require('./utils/database')
 const express = require('express')
@@ -22,28 +22,23 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
-
 const server = http.createServer(app)
-const io = new Server(server, { cors: { origin: '*' } })
+const io = new SocketServer(server, { cors: { origin: '*' } })
 
-io.on('connection', (socket) => {
-    console.log(`connect: ${socket.id}`, socket.request.headers);
 
-    socket.on('disconnect', () => {
-        console.log(`disconnect: ${socket.id}`);
-    });
+io.on('connection', socket => {
 
-    socket.on('message', msg => {
-        console.log(msg);
-        setTimeout(() => {
-            io.emit('server', 'authorizeserver')
-        }, 1000)
+    socket.on('message', (message) => {
+        console.log('message: ' + message)
+        // socket.broadcast.emit('server', 'authorizeserver')
+        socket.broadcast.emit('server', 'authorizeserver')
     })
 
-});
+})
 
-io.listen(3000);
 
+server.listen(3500)
+console.log('server started on ', 3500)
 
 
 db.authenticate()
@@ -56,6 +51,7 @@ db.authenticate()
 //     .catch(err => { console.log(err) })
 
 initModels()
+
 
 const { port } = require('./config')
 
