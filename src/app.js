@@ -22,7 +22,7 @@ app.use(cors(corsOptions))
 
 const io = new Server({
     cors: {
-        origin: '*'
+        origin: ['https://erp-neon-api-production.up.railway.app']
     }
 });
 
