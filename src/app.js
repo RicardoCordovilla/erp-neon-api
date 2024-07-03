@@ -4,10 +4,21 @@ const initModels = require('./models/initModels')
 const cors = require('cors')
 const productsRouter = require('./models/products/products.routes')
 const signsRouter = require('./models/signs/signs.routes')
-const projectsRouter = require('./models/Projects/projects.routes')
+const projectsRouter=require('./models/Projects/projects.routes')
 const customersRouter = require('./models/customers/customers.routes')
 const assistanceRouter = require('./models/assistance/assistance.routes')
+
 const db = require('./utils/database')
+const express = require('express')
+const app = express()
+app.use(express.json())
+const corsOptions = {
+    // credentials: true,
+    origin: '*'
+}
+app.use(cors(corsOptions))
+
+
 
 
 db.authenticate()
@@ -21,13 +32,12 @@ db.authenticate()
 
 initModels()
 
-
-const { port, db } = require('./config')
+const { port } = require('./config')
 
 app.get('/', (req, res) => {
     res.status(200).json({
         message: 'OK',
-        users: `localhost:${port}/api/users`
+        users: `localhost:${port}/api/v1/users`
     })
 })
 

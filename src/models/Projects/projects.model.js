@@ -81,4 +81,4 @@ module.exports = Projects;
 //     as: 'projectSigns', // Alias para acceder a los signos relacionados desde un proyecto
 // });
 
-Projects.sync({ alter: true });
+// Projects.sync({ alter: true });
