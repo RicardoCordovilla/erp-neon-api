@@ -8,38 +8,6 @@ const projectsRouter = require('./models/Projects/projects.routes')
 const customersRouter = require('./models/customers/customers.routes')
 const assistanceRouter = require('./models/assistance/assistance.routes')
 
-const { Server: SocketServer } = require('socket.io')
-const http = require('http')
-
-
-const db = require('./utils/database')
-const express = require('express')
-const app = express()
-app.use(express.json())
-const corsOptions = {
-    // credentials: true,
-    origin: '*'
-}
-app.use(cors(corsOptions))
-
-const server = http.createServer(app)
-const io = new SocketServer(server, { cors: { origin: '*' } })
-
-
-io.on('connection', socket => {
-
-    socket.on('message', (message) => {
-        console.log('message: ' + message)
-        // socket.broadcast.emit('server', 'authorizeserver')
-        socket.broadcast.emit('server', 'authorizeserver')
-    })
-
-})
-
-
-server.listen(3500)
-console.log('server started on ', 3500)
-
 
 db.authenticate()
     .then(() => { console.log('DB authenticated') })

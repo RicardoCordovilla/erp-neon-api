@@ -34,22 +34,17 @@ const Projects = db.define('projects', {
         defaultValue: 0,
     },
     quote: {
-        type: DataTypes.TEXT,
+        type: DataTypes.UUID,
         allowNull: true,
         defaultValue: '',
     },
     pays: {
-        type: DataTypes.ARRAY(DataTypes.JSON),
+        type: DataTypes.DOUBLE,
         allowNull: true,
         defaultValue: [],
     },
-    paystatus: {
-        type: DataTypes.STRING,
-        allowNull: true,
-        defaultValue: 0,
-    },
     projectSigns: {
-        type: DataTypes.ARRAY(DataTypes.JSON),
+        type: DataTypes.ARRAY(DataTypes.UUID),
         allowNull: true,
         defaultValue: [],
     },
@@ -76,17 +71,8 @@ const Projects = db.define('projects', {
         allowNull: true,
         defaultValue: '',
     },
-    createdat: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: new Date(),
-    },
-    updatedat: {
-        type: DataTypes.DATE,
-        allowNull: true,
-        defaultValue: new Date(),
-    },
-}, { timestamps: false });
+
+}, { timestamps: true });
 
 module.exports = Projects;
 
