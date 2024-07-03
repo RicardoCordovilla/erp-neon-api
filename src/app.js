@@ -1,10 +1,11 @@
+const { Server } = require('socket.io');
 const userRouter = require('./models/users/users.router')
 const authRouter = require('./auth/auth.router')
 const initModels = require('./models/initModels')
 const cors = require('cors')
 const productsRouter = require('./models/products/products.routes')
 const signsRouter = require('./models/signs/signs.routes')
-const projectsRouter=require('./models/Projects/projects.routes')
+const projectsRouter = require('./models/Projects/projects.routes')
 const customersRouter = require('./models/customers/customers.routes')
 const assistanceRouter = require('./models/assistance/assistance.routes')
 
@@ -18,6 +19,30 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
+
+const io = new Server({
+    cors: {
+        origin: '*'
+    }
+});
+
+io.on('connection', (socket) => {
+    console.log(`connect: ${socket.id}`, socket.request.headers);
+
+    socket.on('disconnect', () => {
+        console.log(`disconnect: ${socket.id}`);
+    });
+
+    socket.on('message', msg => {
+        console.log(msg);
+        setTimeout(() => {
+            io.emit('server', 'authorizeserver')
+        }, 1000)
+    })
+
+});
+
+io.listen(3000);
 
 
 
